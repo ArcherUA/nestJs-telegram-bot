@@ -1,0 +1,31 @@
+version: '3'
+services:
+  telegram_bot:
+    container_name: telegram_bot
+    hostname: telegram_bot
+    restart: always
+    env_file: .env
+    volumes:
+      - './nest-telegram-chat-bot:/var/www/api'
+    build:
+      context: .
+      dockerfile: ./nest-telegram-chat-bot/Dockerfile
+    ports:
+      - '${TELEGRAM_BOT_PORT}:${TELEGRAM_BOT_PORT}'
+    depends_on:
+      - usd_rate_archive_db
+  usd_rate_archive_db:
+    container_name: usd_rate_archive_db
+    hostname: '${USD_RATE_ARCHIVE_DB_HOST}'
+    image: 'postgres:12.2-alpine'
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: '${USD_RATE_ARCHIVE_DB_USER}'
+      POSTGRES_PASSWORD: '${USD_RATE_ARCHIVE_DB_PASSWORD}'
+      POSTGRES_DB: '${USD_RATE_ARCHIVE_DB_NAME}'
+      POSTGRES_PORT: '${USD_RATE_ARCHIVE_DB_PORT}'
+      PGDATA: /var/lib/postgresql/data/usd_rate_archive_db
+    ports:
+      - '${USD_RATE_ARCHIVE_DB_PORT}:${USD_RATE_ARCHIVE_DB_PORT}'
+    command: '-p ${USD_RATE_ARCHIVE_DB_PORT}'
