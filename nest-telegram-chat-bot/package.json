@@ -30,6 +30,7 @@
     "@nestjs/typeorm": "^7.1.4",
     "axios": "^0.20.0",
     "joi": "^14.3.1",
+    "moment": "^2.29.0",
     "node-fetch": "^2.6.1",
     "node-telegram-bot-api": "^0.50.0",
     "pg": "^8.3.3",
