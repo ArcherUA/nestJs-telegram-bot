@@ -1,1 +1,1 @@
-# arena_squad_bot
+It is my first NestJS telegram bot.
