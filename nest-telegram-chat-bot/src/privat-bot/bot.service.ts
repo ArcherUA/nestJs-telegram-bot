@@ -138,9 +138,9 @@ export class BotService {
         const date = moment().format('L');
 
         bot.sendMessage(recipientId,
-        `На ` + date + '\n' +
-        'За ' + uah[1] + ' гривен можно приобрести ' + Math.floor(usd) + ' долларов.'
-      );
+          `На ` + date + '\n' +
+          'За ' + uah[1] + ' гривен можно приобрести ' + Math.floor(usd) + ' долларов.'
+        );
       });
     }
 

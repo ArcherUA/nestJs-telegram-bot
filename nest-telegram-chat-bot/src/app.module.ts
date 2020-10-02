@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BotController } from './privat-bot/bot.controller';
 import { BotService } from './privat-bot/bot.service';
 import { USD_RATE_ARCHIVE_DB_CONFIG } from './config/orm.config';
-import { UsdRateArchive } from './common/entities/usd-rate-aarchive.entity';
+import {UsdRateArchive} from "./common/entities/usd-rate-aarchive.entity";
 
 @Module({
   imports: [
